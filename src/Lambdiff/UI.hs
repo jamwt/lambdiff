@@ -13,7 +13,7 @@ renderUI diffs = do
     initGUI
     window <- windowNew
     outbox <- vBoxNew True 2
-    bar    <- labelNew $ Just "λiff v0.1"
+    bar    <- labelNew $ Just "λiff v0.1 -- use keys (j, k, J, K, l, h, P, N, Esc)"
 --    labelSetText bar "lambdiff"
 --    entrySetHasFrame bar False
 --    set bar [entryEditable := False]
@@ -131,6 +131,9 @@ pageMove scroll op = do
 nextFile = moveFile (+1)
 prevFile = moveFile (subtract 1)
 
+downFiles = moveFile (+10)
+upFiles = moveFile (subtract 10)
+
 moveFile op numItems tv = do
     (ix, _) <- treeViewGetCursor tv
     case ix of
@@ -167,6 +170,11 @@ handleKeyPress numItems tv scroll (Key rel _ _ mods _ _ _ val name char) = do
         "Left" -> shrink tv
         "l" -> grow tv
         "Right" -> grow tv
+
+        "p" -> upFiles numItems tv
+        "P" -> upFiles numItems tv
+        "n" -> downFiles numItems tv
+        "N" -> downFiles numItems tv
 
         "Escape" -> exitWith ExitSuccess
         o   -> (return ())

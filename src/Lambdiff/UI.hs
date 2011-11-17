@@ -13,7 +13,7 @@ renderUI diffs = do
     initGUI
     window <- windowNew
     outbox <- vBoxNew True 2
-    bar    <- labelNew $ Just "λiff v1.0"
+    bar    <- labelNew $ Just "λiff v0.1"
 --    labelSetText bar "lambdiff"
 --    entrySetHasFrame bar False
 --    set bar [entryEditable := False]

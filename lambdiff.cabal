@@ -54,16 +54,15 @@ Executable lambdiff
                       Lambdiff.Types,
                       Lambdiff.UI
 
-
   Main-is: Lambdiff/Main.hs
 
   -- Packages needed in order to build this package.
   Build-depends:  base >= 4 && < 5,
-                  bytestring>=0.9,
-                  mtl>=2,
+                  bytestring>=0.9 && <1.0,
+                  mtl>=2 && <3,
                   enumerator>=0.4.5 && < 0.5,
-                  attoparsec>=0.8,
-                  gtk>=0.12,
+                  attoparsec>=0.9 && <1.0,
+                  gtk>=0.12 && <0.13,
                   attoparsec-enumerator>=0.2 && < 0.3
 
   Extensions: OverloadedStrings,DeriveDataTypeable

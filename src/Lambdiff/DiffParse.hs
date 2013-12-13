@@ -4,7 +4,6 @@ import Data.ByteString.Char8 as S
 import Control.Applicative ((<|>))
 
 import qualified Data.Attoparsec as Atto
-import qualified Data.Attoparsec.Combinator as AttoComb
 import qualified Data.Attoparsec.Char8 as AttoC
 
 data ParseFileResult = ParseFileResult S.ByteString S.ByteString [ParseChunk]
@@ -20,7 +19,7 @@ data ParseLine = ParseLineNone S.ByteString
   deriving Show
 
 diffParser :: Atto.Parser [ParseFileResult]
-diffParser = AttoComb.many' parseDiff
+diffParser = Atto.many' parseDiff
 
 parseDiff :: Atto.Parser ParseFileResult
 parseDiff = do
